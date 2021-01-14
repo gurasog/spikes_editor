@@ -43,55 +43,20 @@ styles = {
     }
 }
 
-####### вот это то, что я буду менять ############
-df = pd.DataFrame({
-    "x": [1,2,1,2],
-    "y": [1,2,3,4],
-    "customdata": [1,2,3,4],
-    "fruit": ["apple", "apple", "orange", "orange"]
-})
 
-fig = px.scatter(df, x="x", y="y", color="fruit", custom_data=["customdata"])
-
-fig.update_layout(clickmode='event+select')
-
-fig.update_traces(marker_size=20)
-
-
-
-import mne  # If this line returns an error, uncomment the following line
-# !easy_install mne --upgrade
-
-# add plot inline in the page
 import numpy as np
 # get data
-from mne.datasets import sample
-data_path = sample.data_path()
-raw_fname = data_path + '/MEG/sample/sample_audvis_filt-0-40_raw.fif'
-raw = mne.io.Raw(raw_fname, preload=False)
-picks = mne.pick_types(raw.info, meg='mag', exclude=[])
-start, stop = raw.time_as_index([100, 115])  # 100 s to 115 s data segment
-data, times = raw[picks[:10], start:stop]
 
 
 import plotly.io as pio
 import plotly.express as px
 pio.renderers.default='browser'
 
-#turn data into dataframe
-import pandas as pd;
-chnm = [];
-for i in range(0,10):
-    chnm.append(raw.info.ch_names[picks[i]]);
 
-chstd = np.mean(np.std(data.T,axis = 0));
 
-for i in range(0,data.shape[0]):
-    data[i,:] = data[i,:] + chstd*i;
-    
-    
-    
-    
+
+
+
 '''
 place for data
 
@@ -100,19 +65,15 @@ splines_ends=splines_starts+21
 
 splines=np.random.rand(1000,21)
 
-'''  
+'''
 
 
-splines_starts=np.array([1,100,200,400,800,1000,1200,1500])
-splines_ends=splines_starts+21
 
-Fs=250
 
-initial_range=4
 
 '''
 
-'''  
+'''
 
 
 #spikes_data_path='/Users/gurasog/Desktop/Master/2_BCI/16_Git/bci/Rat_classical_dataset.json'
@@ -163,6 +124,7 @@ splines_starts=np.array(spikes_starts)
  
     
 Fs=250
+initial_range=4
 data_mat_file=loadmat(data_path)
 data_mat_file=data_mat_file['X'][0:6,:]
 data=data_mat_file
@@ -744,7 +706,7 @@ def controle_spike_number(n_clicks_ok, n_clicks_previous_spike, n_clicks_next_sp
 
 
 if __name__ == '__main__':
-    app.run_server(host='127.0.0.1', port=8100, debug=True,use_reloader=False, dev_tools_hot_reload=False)
+    app.run_server(host='0.0.0.0', port=8100, debug=True,use_reloader=False, dev_tools_hot_reload=False)
     #app.run_server(host='https://neuroimaging.group/1',debug=True, use_reloader=False, dev_tools_hot_reload=False)
     
     
