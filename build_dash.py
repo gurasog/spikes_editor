@@ -621,7 +621,7 @@ def build_dash(spikes_data_path, data_path, port_number):
             return spike_number_state_int
 
     if __name__ == '__main__':
-        app.run_server(host='127.0.0.1', port=port_number, debug=True, use_reloader=False, dev_tools_hot_reload=False)
+        app.run_server(host='0.0.0.0', port=port_number, debug=True, use_reloader=False, dev_tools_hot_reload=False)
 
 
 import sys
