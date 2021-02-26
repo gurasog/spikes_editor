@@ -706,7 +706,7 @@ def controle_spike_number(n_clicks_ok, n_clicks_previous_spike, n_clicks_next_sp
 
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8100, debug=True,use_reloader=False, dev_tools_hot_reload=False)
+    app.run_server(host='0.0.0.0', port=10125, debug=True,use_reloader=False, dev_tools_hot_reload=False)
     #app.run_server(host='https://neuroimaging.group/1',debug=True, use_reloader=False, dev_tools_hot_reload=False)
     
     
