@@ -2,7 +2,8 @@
 cd "$(dirname "$0")/.."
 
 # Create a virtual environment if it does not exist
-if [ ! -d ".venv" ] then
+if [ ! -d ".venv" ]
+then
 	python3.9 -m venv .venv
 fi
 
